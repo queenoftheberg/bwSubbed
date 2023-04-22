@@ -1,0 +1,397 @@
+:root {
+    --bodybackgr: #c2d8e7;
+    --bodycolor: #000;
+    --mainbackgr: #aad0f0; /* aad0f0 a2b8c7 */
+    --headbackgr: #073B4C;
+    --navbackgr: #0A4E66;
+    --navcolor: #d5d4d8;
+    --ovalborder: #345489;
+
+    --debugbordrX: 1px dashed yellow;
+    --debugbordr2X: 1px dashed white;
+    --debugbordr3X: 1px dashed brown;
+    --debugbordr4X: 1px dashed blue;
+    --debugbordr: none;
+    --debugbordr2: none;
+
+    --logoplace: flex-start;
+    --navplace: center;
+
+    --mainwidth: 95%;
+    --linewidth: 98%;
+    --gallwidth: 100%;
+    --navheight: 1.8rem;
+    --navgap: 2%;
+    --backheight: 50%;
+    --backminmax: 80vh;
+    --textwidth: 90%;
+    --flexbasis2: 42%;
+    --flexbasis4: 21%;
+    --flexgap: 1rem;
+    
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #a2b8c7;
+    font-size: 100%; /* default 16px */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 120%;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    z-index: 0; /* make sure it is all zero */
+}
+#body-div {
+    background-color: var(--bodybackgr);
+    position: relative; /* base position for absolutes */
+    width: var(--mainwidth);
+    margin: 0 auto; /* for possible width change */
+}
+a {
+    text-decoration: none;
+    color: var(--navcolor);
+}
+a:hover, .ovalsee:hover, .ovalniks:hover {
+    text-decoration: underline;
+    text-decoration: overline;
+}
+/* **************nav-bar, header, pagetop******************* */
+#pagetop {
+    height: var(--navheight);
+    display: flex;
+    flex-flow: row-reverse nowrap;
+    gap: 5px;
+}
+.quicklink, #modallink {
+    flex-basis: 5%;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--bodycolor);
+    position: fixed;
+    bottom: 0.2rem;
+    margin: 0;
+    padding: 0;
+    line-height: 100%;
+    z-index: 7;
+}
+.quicklink {
+    right: 0.2rem !important;
+
+}
+.quicklink:hover, #modallink:hover {
+    background-color: var(--ovalborder);
+}
+#modallink {
+    background: none;
+    border: none;
+    right: 1.9rem !important;
+    /*bottom: 1.4rem;*/ 
+}
+header {
+    border: var(--debugbordr2);
+    background-color: var(--headbackgr);
+    position: fixed;
+    top: 0;
+    width: var(--mainwidth);
+    margin: 0 auto;
+}
+#headline {
+    display:grid;
+    grid-template-columns: 8% 88%;
+    justify-items: var(--navplace);
+    align-content: center;
+    gap: var(--navgap);
+    height: var(--navheight);
+}
+#logo {
+    width: var(--navheight);
+    height: var(--navheight); /* same as nav-bar height */
+    object-fit: contain;
+    justify-self: var(--logoplace);
+    padding: 0; /* 8% */
+}
+#nav-bar, #choice { /* choice is lower down */
+    background-color: var(--headbackgr);
+    color: var(--navcolor);
+    height: var(--navheight);/* same as logo height */
+    margin: 0;
+    padding: 0 1%;
+    font-weight: bold;
+    opacity: 100%;
+}
+#nav-bar {
+    z-index: 5;
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+nav li  {
+    background-color: var(--navbackgr);
+    display: inline-block;
+    list-style: none;
+    margin: auto;
+    padding: 0 0.1rem 0;
+    padding-top: 0;
+    font-size: 0.7rem; 
+    z-index: 6;
+}
+.oval, .ovalsee {
+    background-color: var(--navbackgr);
+    color: var(--navcolor);
+    border: 1px solid var(--ovalborder) !important;
+    border-radius: 0.8rem !important;
+}
+.ovalniks {
+    background-color: var(--mainbackgr);
+    color: var(--bodycolor);
+    border: 1px solid var(--ovalborder) !important;
+    border-radius: 0.8rem !important;
+}
+#back-div {
+    display: block;
+    width: 100%;
+    border: var(--debugbordr3X);
+    height: var(--backheight);
+    min-height: var(--backminmax);
+    max-height: var(--backminmax);
+    background-color: var(--mainbackgr); /* fallback if no image*/
+    background-image: url("../media/images/back_cover_2021.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%; /* fit whole width and height */
+    background-attachment:fixed;
+    opacity: 100%;
+}
+/* back-gallery-modal replaces back-div on gallery2 to display a clicked image */
+/* **************main-div, lineby2, lineby4, footer******************** */
+#main-div {
+    margin: 0 auto;
+    margin-top: var(--navheight);
+}
+#choice {
+    background: none;
+    border-bottom: 2px double var(--ovalborder);
+    width: 50%;
+    height: 2rem;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0.1rem auto;
+    padding-top: 0.4rem;
+    color: var(--navcolor);
+    justify-content: center;
+    align-items: center;
+}
+#choice button {
+    flex-basis: 20%;
+    padding: 0 0.2rem;
+}
+#sv-const, #sv-paint, #sv-secure {
+    display: inline-block;
+}
+#serv-div {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.serv-text {
+    display: inline-block;
+    flex-basis: 50%;
+}
+.serv-hide {
+    display: none;
+    flex-basis: 2%;
+}
+/* ***********************lines and cards for home page**************************** */
+section {
+    margin-top: var(--navheight);
+    padding-top: var(--navheight);
+}
+.lineby2, .lineby4 {
+    width: var(--linewidth);
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--flexgap);
+    margin: 0 auto;
+    justify-content: space-between;
+}
+.card2, .card4 {
+    /*border:0.5px dashed black;*/
+    display: inline-block;
+    justify-content: space-evenly;
+    opacity: 100%;
+    display: block;
+    margin: 0.2rem 0;
+    text-align: center;
+
+}
+.card2 {
+    flex-basis: var(--flexbasis2);
+    /*width: 45%;*/
+}
+.card4 {
+    background-color: var(--mainbackgr);
+    flex-basis: var(--flexbasis4);
+    /*width: 22%;*/
+}
+.card2 img, .card4 img {
+    display: block;
+    width: 90%;
+    max-width: 90%;
+    height: 100%;
+    max-height: 95vh;
+    object-fit: contain;
+}
+.card2 .text-box {
+    border: var(--debugbordr3);
+    /*width: 90%;
+    max-width: 90%;*/
+}
+.pic1 {
+    display: block;
+    width: 80%;
+    max-width: 80%;
+    object-fit: contain;
+    margin: 0.8rem auto;
+}
+.text-box {
+    border: 1px double var(--debugbordr4);
+    display: inline-block;
+    width: var(--textwidth);
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 0;
+    line-height: 100%;
+    margin: 0 auto;
+}
+.getquote {
+    display: block;
+    border-top: 2px double grey;
+    width: 50%;
+    margin: 0.5rem auto;
+    padding: 0.1rem 0.8rem;
+    text-align: center;
+    font-weight: bold;
+}
+.getquote span {
+    color: #2325e8;
+}
+footer {
+    background-color: var(--mainbackgr);
+    margin: 1.3rem auto;
+    padding: 1.2rem 3.4rem;
+    font-size: 0.8rem;
+}
+footer p {
+    margin: 0.1rem auto;
+    text-align: center;
+}
+/* ************************gallery*************************** */
+#back-gallery-modal {
+    display: block;
+    width: 100%;
+    /*border: var(--debugbordr);*/
+    height: var(--backheight);
+    /*min-height: var(--backminmax);
+    max-height: var(--backminmax);*/
+    background-color: var(--mainbackgr);
+    
+    opacity: 75%;
+}
+#back-gallery-modal img {
+    /*display: none; /* JS makes it display:block */
+    width: 100%;
+    height: 80vh; /* fallback for max-content*/
+    height: max-content;
+    max-height: 95vh;
+    overflow: auto; /* maybe needed on small screen */
+    object-fit:fill;
+    margin: auto;
+    padding: auto;
+    background-color: var(--mainbackgr);
+    z-index: 1; /* show in front */
+    opacity: 1;
+    /*  */
+    display: block;
+    width: 100%;
+    /*border: var(--debugbordr);*/
+    height: var(--backheight);
+    min-height: var(--backminmax);
+    max-height: var(--backminmax);
+    background-color: var(--mainbackgr);
+    background-image: url("../media/images/back_cover_2021.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%; /* fit whole width and height */
+    background-attachment:fixed;
+    opacity: 90%;
+}
+.gallery-div {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 auto;
+    width: var(--gallwidth);
+}
+.gallery-div img, .gallery-div button {
+    flex-basis: var(--flexbasis4);
+    overflow: auto;
+    border: 1px solid var(--ovalborder);
+    border-radius: 0.9rem;
+    width: 15rem;
+    height: 8.5rem;
+    margin: 0.4rem;
+    padding: 0rem;
+}
+.gallery-div img:hover, .gallery-div button:hover {
+    transform:scale(150%);
+}
+.buttercup {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    object-position: center;
+    
+    /*background-image: url(../gallery/original-photos/017-scaled.jpg);*/
+    /*background-size:cover;*/
+    vertical-align: middle;
+}
+.buttercup img {
+    border: 1px solid red;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    
+}
+
+/* ****************media queries*********************** */
+@media only screen and (max-width:668px) {
+    :root {
+        --mainbackgr: #aad0f0;
+        --mainwidth: 98%;
+        --linewidth: unset;
+        --backminmax: 40vh;
+        --textwidth: unset;
+        --flexbasis2: 92%;
+        --flexbasis4: 92%;
+        --flexgap: 0;
+    }
+    #back-div {
+        height: 40%;
+        min-height: 40vh;
+        max-height: 40vh;
+    }
+    .card2, .card4 {
+        justify-content:space-around;
+    }
+}
+@media only screen and (min-width:1068px) {
+    :root {
+        --linewidth: 70%;
+        --textwidth: 65%;
+    }
+}
